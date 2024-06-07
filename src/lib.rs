@@ -34,7 +34,7 @@ impl Config {
             None => return Err("Didn't get a file path"),
         };
 
-        let ignore_case = args.next().unwrap_or_else(|| String::new());
+        let ignore_case = args.next().unwrap_or_default();
 
         let ignore_case = match env::var("IGNORE_CASE") {
             Err(_) => ignore_case == "--ignore-case" || ignore_case == "-i",
